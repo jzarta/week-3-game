@@ -1,0 +1,90 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>The Psychic Game</title>
+</head>
+
+<body>
+	
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+	<link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+	<!-- This is where the code will go that we created. -->
+
+	<div id="guess" type"text">
+		
+		<h1>The Psychic Game</h1>
+		
+		<h2>Guess what letter I'm thinking of!</h2>
+
+	</div>
+
+	<li>Wins:</li>
+	<li>Losses:</li>
+	<li>Guesses left:</li>
+	<li>Your Guesses so far:</li>
+
+<script type="text/javascript">
+	
+// Sets the computer chooices 
+
+var letters = ['a', 'z', 'b', 'y', 'c', 'x', 'd', 'w', 'f'];
+
+//Declares the tallies to 0 to 9
+var Wins = 0;
+var Losses = 0;
+var Guessesleft = 9;
+var YourGuessessofar = 0;
+
+// When the user presses the key it records the keypress and then sets it to userguess
+document.onkeyup = function(event) {
+	var Guessesleft = String.fromCharCode(event.keyCode).toLowerCase();
+	var Guessesleft = yourGuessessofar[Math.floor(Math.random() * computerChoices.length)];
+	alert("Guesses left: " + Guessesleft);
+	alert("your Guesses so far: " + yourGuessessofar);
+
+//picks a random letters between a and z
+function initGame() {
+   
+   var letters = Math.floor(Math.random() * letters.length);
+   letters = letters[letterIndex];
+   Guesses = 9;
+   LettersGuessed = [];
+
+// User chooses a, z, b, y, c, x, d, w, f
+if ((letters == 'a') || (letters == 'z') || (letters == 'b') || (letters == 'y') || (letters == 'c') || (letters == 'x') || (letters == 'd') || (letters == 'w') || (letters == 'f')) {
+
+	if ((letters == 'a')){wins++;
+	}else if ((letters == 'z')){wins++;
+	}else if ((letters == 'b')){wins++;
+	}else if ((letters == 'y')){wins++;
+	}else if ((letters == 'c')){wins++;
+	}else if ((letters == 'x')){wins++;
+	}else if ((letters == 'd')){wins++;
+	}else if ((letters == 'w')){wins++;
+	}else if ((letters == 'f')){wins++;	
+
+}
+
+// Taking the tallies and displaying them in HTML
+		var html = "<p>The Psychic Game</p>" +
+		"<p>wins: " + 
+		wins + 
+		"</p>" +
+		"<p>losses: " + 
+		losses + 
+		"</p>" +
+		Guessesleft
+		"<p>Guessesleft: " + 
+		yourGuessessofar
+		"<p>yourGuessessofar: " + 
+		"</p>";
+}		
+
+</script>
+
+</body>
+</html>

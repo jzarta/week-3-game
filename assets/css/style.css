@@ -1,0 +1,23 @@
+
+
+*{ font-family: 'Lobster', cursive;
+	font-weight: 500; 
+	background-color:#206D8C;
+}
+
+h1,
+h2,
+
+li{
+	color:#F25F5C;
+	font-weight: 300;
+	font-family: 'Lobster', cursive;
+	font-size: 65px;
+}
+
+h1, h2 {
+	font-family: 'Lobster', cursive;
+	font-weight: 700;
+	color:#EFEFEF;
+	font-size: 55px;
+}
