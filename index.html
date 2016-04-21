@@ -3,7 +3,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	
 	<title>The Psychic Game</title>
+	
 </head>
 
 <body>
@@ -11,27 +13,32 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	
 	<link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 
 	<!-- This is where the code will go that we created. -->
 
 	<div id="guess" type"text">
+
+	<center>
 		
 		<h1>The Psychic Game</h1>
-		
-		<h2>Guess what letter I'm thinking of!</h2>
+
+	<h2>Guess what letter I'm thinking of!</h2>
+
+		</center>
 
 	</div>
-
+	
 	<li>Wins: <span id="wins">0</span></li>
-	<li>Losses:</li>
-	<li>Guesses left:</li>
-	<li>Your Guesses so far:</li>
+	<li>Losses: <span id="losses">0</li>
+	<li>Guesses left:<span id="wins">9</li>
+	<li>Your Guesses so far:<span id="wins">[]</li>
 
 <script type="text/javascript">
 	
 // Sets the computer chooices 
 
-var letters = ['a', 'z', 'b', 'y', 'c', 'x', 'd', 'w', 'f'];
+var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
 //Declares the tallies to 0 to 9
 var wins = 0;
@@ -41,14 +48,18 @@ var yourGuessessofar = 0;
 var LettersGuessed = [];
 
 // When the user presses the key it records the keypress and then sets it to userguess
+
 document.onkeyup = function(event) {
 	var userguess = String.fromCharCode(event.keyCode).toLowerCase();
 	var computerChoice = letters[Math.floor(Math.random() * letters.length)];
 
 //picks a random letters between a and z
-	function initGame() {
+	
+		function initGame(){
 	   
-	// User chooses a, z, b, y, c, x, d, w, f
+	// User chooses a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z.
+	
+	
 	if (userguess == computerChoice){
 		wins++
 		} else {
@@ -56,7 +67,7 @@ document.onkeyup = function(event) {
 		}
 			guessesLeft--
 		LettersGuessed.push(userguess)
-		$('#wins').text(wins)
+		
 
 	// Taking the tallies and displaying them in HTML
 	var html = "<p>The Psychic Game</p>" +
@@ -70,7 +81,10 @@ document.onkeyup = function(event) {
 	"<p>guessesLeft: " + 
 	yourGuessessofar
 	"<p>yourGuessessofar: " + 
-	"</p>";
+	"</p>"
+	LettersGuessed
+	"<p>LettersGuessed: " +
+	"</p>"
 	}
 
 	initGame();
