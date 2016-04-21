@@ -1,99 +1,68 @@
 <!DOCTYPE <!DOCTYPE html>
-<html lang="en">
 <html>
 <head>
-<meta charset="UTF-8">
-	
-	<title>The Psychic Game</title>
-	
+	<title>The Psychic Game</title>	
 </head>
-
 <body>
+
+<div id="guess">
+<p>Guess what letter I'm thinking of!</p>
+</div>
 	
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	
 	<link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 
 	<!-- This is where the code will go that we created. -->
 
-	<div id="guess" type"text">
-
-	<center>
-		
-		<h1>The Psychic Game</h1>
-
-	<h2>Guess what letter I'm thinking of!</h2>
-
-		</center>
-
-	</div>
 	
-	<li>Wins: <span id="wins">0</span></li>
-	<li>Losses: <span id="losses">0</li>
-	<li>Guesses left:<span id="wins">9</li>
-	<li>Your Guesses so far:<span id="wins">[]</li>
-
 <script type="text/javascript">
 	
-// Sets the computer chooices 
+// Sets the computer choices 
+var computerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 
+                       'j', 'l', 'm', 'o', 'p', 'q', 'r', 's', 't', 
+                       'u', 'v', 'w', 'x', 'y', 'z'];
 
-var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-
-//Declares the tallies to 0 to 9
+// Declares the tallies to 0 
 var wins = 0;
 var losses = 0;
-var guessesLeft = 9;
-var yourGuessessofar = 0;
-var LettersGuessed = [];
+var guessesLeft = 0;
+var lettersLeft = [];
 
 // When the user presses the key it records the keypress and then sets it to userguess
-
 document.onkeyup = function(event) {
-	var userguess = String.fromCharCode(event.keyCode).toLowerCase();
-	var computerChoice = letters[Math.floor(Math.random() * letters.length)];
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-//picks a random letters between a and z
-	
-		function initGame(){
-	   
-	// User chooses a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z.
-	
-	
-	if (userguess == computerChoice){
-		wins++
-		} else {
-			losses++
-		}
-			guessesLeft--
-		LettersGuessed.push(userguess)
-		
+    // This sets the computer guess equal to the random.
+    var computerGuess = computerLetters[Math.floor(Math.random() * computerLetters.length)];
+    console.log (computerGuess)
 
-	// Taking the tallies and displaying them in HTML
-	var html = "<p>The Psychic Game</p>" +
-	"<p>wins: " + 
-	wins + 
-	"</p>" +
-	"<p>losses: " + 
-	losses + 
-	"</p>" +
-	guessesLeft
-	"<p>guessesLeft: " + 
-	yourGuessessofar
-	"<p>yourGuessessofar: " + 
-	"</p>"
-	LettersGuessed
-	"<p>LettersGuessed: " +
-	"</p>"
-	
-	initGame();
+     // It tests to determine if the computer or the user won the round and then increments 
+        if (userGuess == computerGuess){
+            wins++;
+        } else { 
+            losses++;
+        }
 
-	document.querySelector('#game').innerHTML = html
-	
-	}
+        //lettersLeft.push
 
-	
-}		
+        // Taking the tallies and displaying them in HTML
+        var html = "<p>Guess what letter I'm thinking of?</p>" +
+        "<p>wins: " + 
+        wins + 
+        "</p>" +
+        "<p>losses: " + 
+        losses + 
+        "</p>" +
+        "<p>guesses left: " + 
+        guessesLeft + 
+        "</p>" + 
+        "<p> letters left: " + lettersLeft + "</p>";
+
+        // Placing the html into the game ID
+     document.querySelector('#game').innerHTML = html;
+
+}	
 
 </script>
 
